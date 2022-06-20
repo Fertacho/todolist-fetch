@@ -1,12 +1,56 @@
 
-/* 
+body{
+    background-color: rgb(125, 125, 203);
+}
+.contenedor {
+    background-color: rgb(125, 125, 203);
+    padding: none;
+    justify-content: center;
+    text-align: center;
+    display: block;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+ul{
+    justify-content: flex-start;
+}
 
-*/
+.inputli {
+    list-style: none;
+    justify-content: center;
+}
+.tareas {
+    padding: none;
+    margin: none;
+}
+.deleter {
+border-radius: 50%;
+background-color: aliceblue;
+size: 5px;
+border-style:solid;
+border-color: black;
+float: right;
+}
+.deleter:hover {
+    background-color: grey;
+    z-index: 2;
+    
+}
+.deleter:active {
+    background-color: aliceblue;
+
+}
+
+h1 {
+    text-align: center;
+}
+.task:hover{
+    background-color: rgb(91, 91, 146);
+    
+}
+.task{
+    text-align: start;
+    padding: 10px;
+    border-style: solid;
+    border-color: rgb(36, 36, 69);
+    border:1px;
+}
