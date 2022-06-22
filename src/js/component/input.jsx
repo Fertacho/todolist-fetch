@@ -30,7 +30,7 @@ const Input = () => {
 
         var requestOptions = {
             method: 'PUT',
-            header: myHeaders,
+            headers: myHeaders,
             body: raw,
             redirect: 'follow'
           };
@@ -40,9 +40,24 @@ const Input = () => {
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
     }
+
+	function fetchDelete (){
+		var raw = "";
+
+		var requestOptions = {
+  		method: 'DELETE',
+  		body: raw,
+  		redirect: 'follow'
+};
+
+		fetch("https://assets.breatheco.de/apis/fake/todos/user/felipin", requestOptions)
+  		.then(response => response.text())
+  		.then(result => console.log(result))
+  		.catch(error => console.log('error', error));
+	}
         
         
-	console.log(inputValue, Task);
+	console.log(Task);
 	return (
 		<div className="contenedor">
 			<ul>
@@ -65,6 +80,7 @@ const Input = () => {
                     <button
                     onClick={() => {
                         fetchPut(List);
+						setTask(Task.concat(inputValue));
                     }}>
                     Agregar tarea
                 </button>
