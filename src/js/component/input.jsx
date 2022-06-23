@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 const Input = () => {
 	const [inputValue, setinputValue] = useState("");
 	const [Task, setTask] = useState([]);
-    const [Tarea, setTarea] = useState("");
-    const List = [{label:Tarea,done:false}]
     useEffect(()=>{
         getTask ()
     }, [])
@@ -23,8 +21,8 @@ const Input = () => {
         })
         .catch(error => console.log('error', error));
     } 
-    function fetchPut (List){
-        var raw = JSON.stringify(List);
+    function fetchPut (newList){
+        var raw = JSON.stringify(newList);
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
@@ -40,22 +38,7 @@ const Input = () => {
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
     }
-
-	function fetchDelete (){
-		var raw = "";
-
-		var requestOptions = {
-  		method: 'DELETE',
-  		body: raw,
-  		redirect: 'follow'
-};
-
-		fetch("https://assets.breatheco.de/apis/fake/todos/user/felipin", requestOptions)
-  		.then(response => response.text())
-  		.then(result => console.log(result))
-  		.catch(error => console.log('error', error));
-	}
-        
+ 
         
 	console.log(Task);
 	return (
@@ -71,24 +54,18 @@ const Input = () => {
 						value={inputValue}
 						onKeyPress={(e) => {
 							if (e.key === "Enter") {
-								setTask(Task.concat(inputValue));
+								let newList = Task.concat({label:inputValue,done:false})
+								setTask(newList);
 								setinputValue(" ");
-                                fetchPut(List);
+                                fetchPut(newList);
 							}
 						}}
 					/>
-                    <button
-                    onClick={() => {
-                        fetchPut(List);
-						setTask(Task.concat(inputValue));
-                    }}>
-                    Agregar tarea
-                </button>
 				</li>
 				{Task.map((value, index) => {
 					return (
 						<li className="task" key={index}>
-							{value}{" "}
+							{value.label}{" "}
 							<button
 								className="deleter"
 								onClick={() =>
