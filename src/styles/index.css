@@ -29,10 +29,10 @@ size: 5px;
 border-style:solid;
 border-color: black;
 float: right;
+display: none;
 }
 .deleter:hover {
-    background-color: grey;
-    z-index: 2;
+    background-color: rgb(240, 239, 239);
     
 }
 .deleter:active {
@@ -43,8 +43,9 @@ float: right;
 h1 {
     text-align: center;
 }
-.task:hover{
+.task:hover .deleter{
     background-color: rgb(91, 91, 146);
+    display: block;
     
 }
 .task{
