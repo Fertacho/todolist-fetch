@@ -62,6 +62,15 @@ const Input = () => {
 							}
 						}}
 					/>
+					<button className="myBtn"
+                    onClick={() => {
+                        let newList = Task.concat({label:inputValue,done:false})
+								setTask(newList);
+								setinputValue(" ");
+                                fetchPut(newList);
+                    }}>
+                    Agregar tarea
+                </button>
 				</li>
 				{Task.map((value, index) => {
 					return (

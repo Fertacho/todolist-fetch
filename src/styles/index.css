@@ -55,3 +55,13 @@ h1 {
     border-color: rgb(36, 36, 69);
     border:1px;
 }
+.myBtn {
+    background-color: aliceblue;
+    border-radius: 8%;
+}
+.myBtn:hover{
+    background-color: gray;
+}
+.myBtn:active{
+    background-color: aliceblue;
+}
