@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 const Input = () => {
 	const [inputValue, setinputValue] = useState("");
 	const [Task, setTask] = useState([]);
+	const text = document.querySelectorAll('.task')
 	
     useEffect(()=>{
         getTask ()
@@ -39,7 +40,18 @@ const Input = () => {
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
     }
- 
+	
+	function fetchDel (text) {
+	var requestOptions = {
+		method: 'DELETE',
+		redirect: 'follow'
+	  };
+	  
+	  fetch("https://assets.breatheco.de/apis/fake/todos/user/felipin", requestOptions)
+		.then(response => response.text())
+		.then(result => console.log(result))
+		.catch(error => console.log('error', error));
+	}
         
 	
 	return (
@@ -71,6 +83,17 @@ const Input = () => {
                     }}>
                     Agregar tarea
                 </button>
+				<button
+								className="Clear"
+								onClick={() =>{
+									  
+									for (let el of text) {  
+  									el.remove();
+								}
+								}
+								}>
+								Limpiar
+							</button>
 				</li>
 				{Task.map((value, index) => {
 					return (
