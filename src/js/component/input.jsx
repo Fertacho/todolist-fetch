@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 const Input = () => {
 	const [inputValue, setinputValue] = useState("");
 	const [Task, setTask] = useState([]);
+	const newList = Task.concat({label:inputValue,done:false})
     useEffect(()=>{
         getTask ()
     }, [])
@@ -40,7 +41,7 @@ const Input = () => {
     }
  
         
-	console.log(Task);
+	
 	return (
 		<div className="contenedor">
 			<ul>
@@ -54,7 +55,6 @@ const Input = () => {
 						value={inputValue}
 						onKeyPress={(e) => {
 							if (e.key === "Enter") {
-								let newList = Task.concat({label:inputValue,done:false})
 								setTask(newList);
 								setinputValue(" ");
                                 fetchPut(newList);
