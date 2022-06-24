@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const Input = () => {
 	const [inputValue, setinputValue] = useState("");
 	const [Task, setTask] = useState([]);
-	const text = document.querySelectorAll('.task')
+	const text = []
 	
     useEffect(()=>{
         getTask ()
@@ -18,8 +18,7 @@ const Input = () => {
 
         fetch("https://assets.breatheco.de/apis/fake/todos/user/felipin", requestOptions)
         .then(response => response.json())
-        .then(result => {console.log(result),
-        setTarea(result);
+        .then(result => {console.log(result);
         })
         .catch(error => console.log('error', error));
     } 
@@ -85,11 +84,7 @@ const Input = () => {
                 </button>
 				<button
 								className="Clear"
-								onClick={() =>{
-									  
-									for (let el of text) {  
-  									el.remove();
-								}
+								onClick={() =>{setTask(text)
 								}
 								}>
 								Limpiar
