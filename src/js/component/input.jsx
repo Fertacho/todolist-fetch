@@ -18,7 +18,7 @@ const Input = () => {
 
         fetch("https://assets.breatheco.de/apis/fake/todos/user/felipin", requestOptions)
         .then(response => response.json())
-        .then(result => {console.log(result);
+        .then(result => {setTask(result);
         })
         .catch(error => console.log('error', error));
     } 
