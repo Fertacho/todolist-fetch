@@ -40,17 +40,23 @@ const Input = () => {
             .catch(error => console.log('error', error));
     }
 	
-	function fetchDel (text) {
-	var requestOptions = {
-		method: 'DELETE',
-		redirect: 'follow'
-	  };
+	//function fetchDel (Task) {
+	//var myHeaders = new Headers();
+	//	myHeaders.append("Content-Type", "application/json");
+
+	//var raw = JSON.stringify(Task)
+	//var requestOptions = {
+	//	method: 'DELETE',
+	//	headers: myHeaders,
+  	//	body: raw,
+	//	redirect: 'follow'
+	//  };
 	  
-	  fetch("https://assets.breatheco.de/apis/fake/todos/user/felipin", requestOptions)
-		.then(response => response.text())
-		.then(result => console.log(result))
-		.catch(error => console.log('error', error));
-	}
+	//  fetch("https://assets.breatheco.de/apis/fake/todos/user/felipin", requestOptions)
+	//	.then(response => response.text())
+	//	.then(result => console.log(result))
+	//	.catch(error => console.log('error', error));
+	//}
         
 	
 	return (
@@ -70,6 +76,7 @@ const Input = () => {
 								setTask(newList);
 								setinputValue(" ");
                                 fetchPut(newList);
+								console.log(Task);
 							}
 						}}
 					/>
@@ -79,12 +86,15 @@ const Input = () => {
 								setTask(newList);
 								setinputValue(" ");
                                 fetchPut(newList);
+								console.log(Task);
                     }}>
                     Agregar tarea
                 </button>
 				<button
-								className="Clear"
-								onClick={() =>{setTask(text)
+								className="clear"
+								onClick={() =>{setTask(text);
+									fetchPut(text);
+									console.log(Task);
 								}
 								}>
 								Limpiar
@@ -103,6 +113,7 @@ const Input = () => {
 									)
 									setTask(delList)
 									fetchPut(delList)
+									console.log(Task);
 								}
 								}>
 								X

@@ -65,3 +65,13 @@ h1 {
 .myBtn:active{
     background-color: aliceblue;
 }
+.clear{
+    background-color: aliceblue;
+    border-radius: 8%;
+}
+.clear:hover{
+    background-color: gray;
+}
+.clear:active{
+    background-color: aliceblue;
+}
